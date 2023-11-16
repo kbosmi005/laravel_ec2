@@ -10,9 +10,6 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-        <!-- Scripts -->
-        {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
@@ -21,9 +18,9 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            @if(request()->is('admin.*'))
+            @if(request()->is('admin*'))
                 @include('layouts.admin-navigation')
-            @elseif(request()->is('owner.*'))
+            @elseif(request()->is('owner*'))
                 @include('layouts.owner-navigation')
             @else
                 @include('layouts.user-navigation')
