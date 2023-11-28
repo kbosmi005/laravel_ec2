@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\UploadImageRequest;
 
-class Imagecontroller extends Controller
+class ImageController extends Controller
 {
     public function __construct()
     {
@@ -44,7 +45,7 @@ class Imagecontroller extends Controller
      */
     public function create()
     {
-        //
+        return view('owner.images.create');
     }
 
     /**
@@ -53,9 +54,9 @@ class Imagecontroller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UploadImageRequest $request)
     {
-        //
+        dd($request);
     }
 
     /**
