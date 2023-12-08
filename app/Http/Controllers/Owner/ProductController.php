@@ -191,4 +191,5 @@ class ProductController extends Controller
         ->with(['message' => '商品を削除しました。',
         'status' => 'alert']);
     }
+
 }
