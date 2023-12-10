@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\PrimaryCategory;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TestMail;
-use App\jobs\SendThanksMail;
+use App\Jobs\SendThanksMail;
 
 
 
