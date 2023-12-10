@@ -8,6 +8,10 @@ use App\Models\Product;
 use App\Models\Stock;
 use Illuminate\Support\Facades\DB;
 use App\Models\PrimaryCategory;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestMail;
+use App\jobs\SendThanksMail;
+
 
 
 
@@ -35,6 +39,14 @@ class ItemController extends Controller
     {
 
         // dd($request);
+
+        // Mail::to('test@example.com')
+        // ->send(new TestMail());
+
+        SendThanksMail::dispatch();
+
+
+
         $categories = PrimaryCategory::with('secondary')
         ->get();
 
