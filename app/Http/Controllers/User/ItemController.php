@@ -56,7 +56,8 @@ class ItemController extends Controller
         ->sortOrder($request->sort)
         ->paginate($request->pagination ?? '20');
 
-        return view('user.index',compact('products','categories'));
+        return view('user.index',
+        compact('products', 'categories'));
     }
 
     public function show($id)
@@ -69,7 +70,7 @@ class ItemController extends Controller
             $quantity = 9;
         }
 
-
-        return view('user.show',compact('product','quantity'));
+        return view('user.show',
+        compact('product', 'quantity'));
     }
 }
