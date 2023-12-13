@@ -6,8 +6,6 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\OrderedMail;
 
 class ThanksMail extends Mailable
 {
@@ -16,9 +14,9 @@ class ThanksMail extends Mailable
     public $products;
     public $user;
 
-    public function __construct()
+    public function __construct($products, $user)
     {
-        $this->products;
+        $this->products = $products;
         $this->user = $user;
     }
 
@@ -30,6 +28,6 @@ class ThanksMail extends Mailable
     public function build()
     {
         return $this->view('emails.thanks')
-        ->subject('ご購入ありがとうございます');
+        ->subject('ご購入ありがとうございます。');
     }
 }
