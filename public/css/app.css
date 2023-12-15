@@ -804,6 +804,10 @@ select{
   margin-left: auto;
   margin-right: auto;
 }
+.my-2{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 .my-3{
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
@@ -820,10 +824,6 @@ select{
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
-.my-2{
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
 .-ml-px{
   margin-left: -1px;
 }
@@ -838,6 +838,9 @@ select{
 }
 .mb-12{
   margin-bottom: 3rem;
+}
+.mb-2{
+  margin-bottom: 0.5rem;
 }
 .mb-4{
   margin-bottom: 1rem;
@@ -869,6 +872,9 @@ select{
 .mr-3{
   margin-right: 0.75rem;
 }
+.mr-4{
+  margin-right: 1rem;
+}
 .mt-1{
   margin-top: 0.25rem;
 }
@@ -889,12 +895,6 @@ select{
 }
 .mt-8{
   margin-top: 2rem;
-}
-.mb-2{
-  margin-bottom: 0.5rem;
-}
-.mr-4{
-  margin-right: 1rem;
 }
 .block{
   display: block;
@@ -1073,6 +1073,11 @@ select{
 .justify-around{
   justify-content: space-around;
 }
+.space-x-2 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
 .space-x-8 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -1082,11 +1087,6 @@ select{
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
-}
-.space-x-2 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-x-reverse: 0;
-  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .overflow-auto{
   overflow: auto;
@@ -1166,16 +1166,16 @@ select{
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
+.border-gray-500{
+  --tw-border-opacity: 1;
+  border-color: rgb(107 114 128 / var(--tw-border-opacity));
+}
 .border-indigo-400{
   --tw-border-opacity: 1;
   border-color: rgb(129 140 248 / var(--tw-border-opacity));
 }
 .border-transparent{
   border-color: transparent;
-}
-.border-gray-500{
-  --tw-border-opacity: 1;
-  border-color: rgb(107 114 128 / var(--tw-border-opacity));
 }
 .bg-blue-300{
   --tw-bg-opacity: 1;
@@ -1865,11 +1865,11 @@ select{
   .md\:w-1\/2{
     width: 50%;
   }
-  .md\:w-2\/3{
-    width: 66.666667%;
-  }
   .md\:w-2\/12{
     width: 16.666667%;
+  }
+  .md\:w-2\/3{
+    width: 66.666667%;
   }
   .md\:w-3\/12{
     width: 25%;
