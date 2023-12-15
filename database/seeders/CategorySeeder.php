@@ -24,38 +24,38 @@ class CategorySeeder extends Seeder
                 'name' => '魚介類・水産加工品',
                 'sort_order' => 2,
             ],
-            [
-                'name' => 'チーズ・乳製品',
-                'sort_order' => 3,
-            ],
+            // [
+            //     'name' => 'チーズ・乳製品',
+            //     'sort_order' => 3,
+            // ],
         ]);
 
         DB::table('secondary_categories')->insert([
             [
-                'name' => '梅干し',
+                'name' => '漬物',
                 'sort_order' => 1,
                 'primary_category_id' => 1
             ],
             [
-                'name' => 'キムチ',
+                'name' => '梅干し',
                 'sort_order' => 2,
                 'primary_category_id' => 1
 
             ],
             [
-                'name' => 'メンマ',
+                'name' => 'かずのこ',
                 'sort_order' => 3,
-                'primary_category_id' => 1
+                'primary_category_id' => 2
 
             ],
             [
-                'name' => '魚卵',
+                'name' => 'その他魚卵',
                 'sort_order' => 4,
                 'primary_category_id' => 2
 
             ],
             [
-                'name' => 'カニ',
+                'name' => 'イカ',
                 'sort_order' => 5,
                 'primary_category_id' => 2
 

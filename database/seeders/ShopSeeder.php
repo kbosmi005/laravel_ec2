@@ -18,16 +18,16 @@ class ShopSeeder extends Seeder
         DB::table('shops')->insert([
         [
             'owner_id' => 1,
-            'name' => 'ここに店名が入ります',
-            'information' => 'ここにお店の情報が入ります。ここにお店の情報が入ります。ここにお店の情報が入ります。',
-            'filename' => 'sample1.jpg',
+            'name' => '漬物専門店',
+            'information' => '創業１２００年の漬物専門店です。',
+            'filename' => 'tukemon.jpg',
             'is_selling' => true
         ],
         [
             'owner_id' => 2,
-            'name' => 'ここに店名が入ります',
-            'information' => 'ここにお店の情報が入ります。ここにお店の情報が入ります。ここにお店の情報が入ります。',
-            'filename' => 'sample2.jpg',
+            'name' => '海の幸屋',
+            'information' => '魚卵、イカ、加工品に特化しています！！',
+            'filename' => 'seafoodshop.jpg',
             'is_selling' => true
         ],
     ]);

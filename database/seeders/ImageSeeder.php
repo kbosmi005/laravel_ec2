@@ -23,28 +23,29 @@ class ImageSeeder extends Seeder
             ],
             [
                 'owner_id' => 1,
-                'filename' => 'sample2.jpg',
+                'filename' => 'umebosi.jpg',
                 'title' =>null
             ],
             [
-                'owner_id' => 1,
-                'filename' => 'sample3.jpg',
+                'owner_id' => 2,
+                'filename' => 'gyorann.jpg',
                 'title' =>null
             ],
             [
-                'owner_id' => 1,
-                'filename' => 'sample4.jpg',
+                'owner_id' => 2,
+                'filename' => 'ikura.jpg',
                 'title' =>null
             ],
             [
-                'owner_id' => 1,
-                'filename' => 'sample5.jpg',
+                'owner_id' => 2,
+                'filename' => 'ika.jpg',
                 'title' =>null
             ],
             [
-                'owner_id' => 1,
-                'filename' => 'sample6.jpg',
+                'owner_id' => 2,
+                'filename' => 'kanzume.jpg',
                 'title' =>null
-            ]]);
+            ],
+        ]);
     }
 }
