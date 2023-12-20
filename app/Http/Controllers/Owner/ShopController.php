@@ -11,7 +11,6 @@ use InterventionImage;
 use App\Http\Requests\UploadImageRequest;
 use App\Services\ImageService;
 
-
 class ShopController extends Controller
 {
     public function __construct()
@@ -38,22 +37,22 @@ class ShopController extends Controller
     public function index()
     {
 
-        // $ownerId = Auth::id();
+        //$ownerId = Auth::id();
         $shops = Shop::where('owner_id', Auth::id())->get();
 
-        return view('owner.shops.index',compact('shops'));
+        return view('owner.shops.index',
+        compact('shops'));
     }
 
     public function edit($id)
     {
         $shop = Shop::findOrFail($id);
         // dd(Shop::findOrFail($id));
-        return view('owner.shops.edit',compact('shop'));
+        return view('owner.shops.edit', compact('shop'));
     }
 
     public function update(UploadImageRequest $request, $id)
     {
-
         $request->validate([
             'name' => 'required|string|max:50',
             'information' => 'required|string|max:1000',
@@ -62,7 +61,7 @@ class ShopController extends Controller
 
         $imageFile = $request->image;
         if(!is_null($imageFile) && $imageFile->isValid() ){
-            $fileNameToStore = ImageService::upload($imageFile,'shops');
+            $fileNameToStore = ImageService::upload($imageFile, 'shops');
         }
 
         $shop = Shop::findOrFail($id);
@@ -72,6 +71,7 @@ class ShopController extends Controller
         if(!is_null($imageFile) && $imageFile->isValid()){
             $shop->filename = $fileNameToStore;
         }
+
         $shop->save();
 
         return redirect()

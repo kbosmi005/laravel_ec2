@@ -1,55 +1,53 @@
-○ ダウンロード方法
+# Hoshimo
 
-    git clone
-    git clone https://github.com/aokitashipro/laravel_umarche.git
-    git clone ブランチを指定してダウンロードする場合
-    git clone -b ブランチ名 https://github.com/aokitashipro/laravel_umarche.git
-    もしくはzipファイルでダウンロードしてください
+ 漬物系/海鮮系専門のお店を持ち、販売できるECサイトです。<br >
+ オーナーごとにお店の管理機能があり、消費者は商品検索機能などを使いながら、それぞれのオーナーから商品を購入することが出来ます。<br ><br >
 
+# 画面一覧
+## ユーザー側
+商品一覧画面です。<br>
+カテゴリーや任意のキーワードで検索でき、ソート機能やページネーションの使用も可能です。
+<img src="Documents/images/user_index.png">
+商品詳細画面です。<br>
+その商品を販売している店舗の情報も確認することが出来ます。<br>
+<img src="Documents/images/user_products.png">
+買い物カゴの画面です。<br>
+購入ボタンを押すとstripe決済画面に進み、<br>
+商品の購入が完了すると、購入者と購入された商品のオーナーの両者に購入完了の旨を知らせるメールが届きます。<br>
+<img src="Documents/images/user_cart.png">
 
-○ インストール方法
+### オーナー側画面
+商品一覧画面です<br>
+<img src="Documents/images/owner_index.png">
+商品登録画面です<br>
+商品の販売情報(販売中/停止中)を選ぶことができ、停止中を選んだ場合はユーザー側の商品一覧には表示されません。<br>
+こちらの画面とは別に画像の新規登録画面があり、<br>
+そちらで登録した画像の中から、使用する画像を選択します。<br>
 
-    ・cd laravel_umarche
-    ・composer install または composer update
-    ・npm install
-    ・npm run dev
-
-  .env.example をコピーして .env ファイルを作成
-
-  .envファイルの中の下記をご利用の環境に合わせて変更してください。
-
-    ・DB_CONNECTION=mysql
-    ・DB_HOST=127.0.0.1
-    ・DB_PORT=3306
-    ・DB_DATABASE=laravel_umarche
-    ・DB_USERNAME=umarche
-    ・DB_PASSWORD=password123
-
-   XAMPP/MAMPまたは他の開発環境でDBを起動した後に
-
-   php artisan migrate:fresh --seed
-
-   と実行してください。(データベーステーブルとダミーデータが追加されればOK)
-   最後に php artisan key:generate と入力してキーを生成後、
-   php artisan serve で簡易サーバーを立ち上げ、表示確認してください。
+<img src="Documents/images/owner_products_create.png">
+<img src="Documents/images/owner_products_create2.png">
+商品情報の変更画面です。<br>
+<img src="Documents/images/owner_products_edit.png">
+以上の他に、店舗情報編集画面があります。<br><br>
 
 
-○ インストール後の実施事項
+### 使用技術
+- PHP 8.2.5
+- Laravel 8.83.27
+- MySQL 5.7.39
+- tailwindcss
 
-    画像のダミーデータは public/imagesフォルダ内に sample1.jpg 〜 sample6.jpg として 保存しています。
-    php artisan storage:link で storageフォルダにリンク後、
-    storage/app/public/productsフォルダ内に 保存すると表示されます。
-    (productsフォルダがない場合は作成してください。)
-    ショップの画像も表示する場合は、 storage/app/public/shopsフォルダを作成し 画像を保存してください。
+### 機能一覧
+- ユーザー登録 / ログイン機能
+- 商品をカテゴリー/キーワードで検索
+- ページネーション
+- カートに追加 / 削除
+- stripe処理
+- 購入時メール受信機能
+- オーナー登録　/　ログイン機能
+- 店舗情報作成　/ 更新
+- 商品画像登録 / 削除
+- 商品登録 / 更新 / 削除
+- 購入された際に商品内容をメールで受信
 
-
-○ section7の補足
-
-    決済のテストとしてstripeを利用しています。 必要な場合は .env にstripeの情報を追記してください。 (講座内で解説しています)
-
-
-○ section8の補足
-
-    メールのテストとしてmailtrapを利用しています。 必要な場合は .env にmailtrapの情報を追記してください。 (講座内で解説しています)
-    メール処理には時間がかかるので、 キューを使用しています。
-    必要な場合は php artisan queue:workで ワーカーを立ち上げて動作確認するようにしてください。 (講座内で解説しています)
+※メール機能に関してはmailtrapを使用しています。

@@ -4,45 +4,44 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Owner;
+use App\Models\Owner; // Eloquent エロクアント
 use App\Models\Shop;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB; // QueryBuilder クエリビルダ
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
 use Throwable;
 use Illuminate\Support\Facades\Log;
 
-
-
 class OwnersController extends Controller
 {
-
-    public function __construct() {
-
+    public function __construct()
+    {
         $this->middleware('auth:admin');
     }
 
     public function index()
     {
-        // $data_now = Carbon::now();
-        // $data_parse = Carbon::parse(now());
-        // echo $data_now->year;
-        // echo $data_parse;
+        // $date_now = Carbon::now();
+        // $date_parse = Carbon::parse(now());
+        // echo $date_now->year;
+        // echo $date_parse;
 
         // $e_all = Owner::all();
-        // $q_get = DB::table('owners')->select('name','created_at')->get();
+        // $q_get = DB::table('owners')->select('name', 'created_at')->get();
         // $q_first = DB::table('owners')->select('name')->first();
-        // $c_test = collect([
-        //     'name' => 'テスト',
 
+        // $c_test = collect([
+        //     'name' => 'てすと'
         // ]);
 
-        // dd($e_all,$q_get,$q_first,$c_test);
-        $owners = Owner::select('id','name', 'email', 'created_at')
+        // var_dump($q_first);
+
+        // dd($e_all, $q_get, $q_first, $c_test);
+        $owners = Owner::select('id', 'name', 'email', 'created_at')
         ->paginate(3);
 
-        return view('admin.owners.index',compact('owners'));
+        return view('admin.owners.index',
+        compact('owners'));
     }
 
     /**
@@ -63,11 +62,11 @@ class OwnersController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->name;
+        //$request->name;
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:owners'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:owners',
+            'password' => 'required|string|confirmed|min:8',
         ]);
 
         try{
@@ -93,7 +92,7 @@ class OwnersController extends Controller
 
         return redirect()
         ->route('admin.owners.index')
-        ->with(['message' => 'オーナー登録を実施しました',
+        ->with(['message' => 'オーナー登録を実施しました。',
         'status' => 'info']);
     }
 
@@ -118,7 +117,7 @@ class OwnersController extends Controller
     {
         $owner = Owner::findOrFail($id);
         // dd($owner);
-        return view('admin.owners.edit',compact('owner'));
+        return view('admin.owners.edit', compact('owner'));
     }
 
     /**
@@ -138,7 +137,7 @@ class OwnersController extends Controller
 
         return redirect()
         ->route('admin.owners.index')
-        ->with(['message' => 'オーナー情報を更新しました',
+        ->with(['message' => 'オーナー情報を更新しました。',
         'status' => 'info']);
     }
 
